@@ -549,573 +549,195 @@
 }
 
 /* ===== PREVIEW CARD ===== */
-  /* ---------- Hero ---------- */
-  .hero{
-    position:relative;
-    padding: 100px 24px 60px 24px;
-    text-align:center;
-    overflow:hidden;
-  }
-  .hero::before{
-    content:"";
-    position:absolute; inset: -200px 0 auto 0; height: 700px;
-    background:
-      radial-gradient(650px 320px at 50% 0%, rgba(61,127,255,0.16), transparent 65%),
-      radial-gradient(500px 300px at 20% 20%, rgba(139,92,246,0.10), transparent 60%);
-    pointer-events:none;
-  }
-  .pill{
-    position:relative;
-    display:inline-flex; align-items:center; gap:10px;
-    background: var(--panel-2); border: 1px solid var(--border);
-    padding: 7px 16px; border-radius: 999px; font-size: 13px; font-weight:600; color: var(--text-dim);
-    margin-bottom: 30px;
-  }
-  .pill .dot{ width:7px; height:7px; border-radius:50%; background: var(--on); box-shadow: 0 0 8px var(--on); }
-  .pill .sep{ color: var(--border); }
-  .hero h1{
-    position:relative;
-    font-size: 66px; line-height:1.05; font-weight:800; letter-spacing:-1.5px;
-  }
-  .hero h1 .grad{
-    font-style:italic;
-    background: linear-gradient(100deg, #7d9dff, #a78bfa 60%, #c084fc);
-    -webkit-background-clip:text; background-clip:text; color:transparent;
-  }
-  .hero p.sub{
-    position:relative;
-    max-width: 640px; margin: 26px auto 0 auto;
-    color: var(--text-dim); font-size: 16.5px; line-height:1.65;
-  }
-  .hero p.sub b{ color: var(--text); font-weight:700; }
-  .hero-cta{
-    position:relative;
-    display:flex; align-items:center; justify-content:center; gap: 14px;
-    margin-top: 34px;
-  }
-  .btn-lg{ padding: 13px 26px; font-size: 15px; border-radius: 10px; }
-  /* ---------- Section shared ---------- */
-  section{ padding: 90px 24px; }
-  .eyebrow{
-    text-align:center; font-size: 12px; font-weight:800; letter-spacing: 2px;
-    color: var(--accent); margin-bottom: 14px;
-  }
-  h2.section-title{
-    text-align:center; font-size: 38px; font-weight:800; letter-spacing:-0.5px; margin-bottom: 16px;
-  }
-  p.section-sub{
-    text-align:center; color: var(--text-dim); font-size: 15.5px; max-width: 560px; margin: 0 auto 56px auto; line-height:1.6;
-  }
-  /* ---------- Gamemode cards ---------- */
-  .gm-grid{
-    display:grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
-    max-width: 1120px; margin: 0 auto;
-  }
-  .gm-card{
-    background: var(--panel-2); border: 1px solid var(--border-soft);
-    border-radius: 14px; overflow:hidden;
-    transition: border-color .2s ease, transform .2s ease;
-  }
-  .gm-card:hover{ border-color: #2a3450; transform: translateY(-3px); }
-  .gm-body{ padding: 20px 22px 22px 22px; }
-  .gm-body h3{ font-size: 18px; font-weight:800; margin-bottom: 9px; }
-  .chip-row{ display:flex; flex-wrap:wrap; gap: 8px; margin-bottom: 14px; }
-  .chip{
-    font-size: 12px; font-weight:700; padding: 6px 12px; border-radius: 7px;
-    background: rgba(255,255,255,0.03); border: 1px solid var(--border);
-    color: var(--text-dim); cursor:pointer; transition: all .15s ease;
-  }
-  .chip:hover{ border-color: #2a3450; color: var(--text); }
-  .chip.active{
-    background: rgba(61,127,255,0.12); border-color: var(--accent); color: #a9c4ff;
-  }
-  .tap-hint{
-    display:flex; align-items:center; gap:6px;
-    font-size: 12px; color: var(--text-dimmer); font-weight:600;
-    padding-top: 12px; border-top: 1px solid var(--border-soft); margin-top: 4px;
-  }
-  .explore-link{
-    display:flex; align-items:center; justify-content:space-between;
-    margin-top: 14px; font-size: 13.5px; font-weight:700; color: var(--accent);
-  }
-  /* ---------- Feature grid ---------- */
-  .feat-grid{
-    display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
-    max-width: 1120px; margin: 0 auto;
-  }
-  .feat-card{
-    background: var(--panel-2); border: 1px solid var(--border-soft); border-radius: 14px;
-    padding: 26px 24px; transition: border-color .2s ease, transform .2s ease;
-  }
-  .feat-card:hover{ border-color:#2a3450; transform: translateY(-2px); }
-  .feat-card h3{ font-size: 16px; font-weight:800; margin-bottom: 9px; }
-  .feat-card p{ font-size: 13.5px; color: var(--text-dim); line-height:1.6; }
-  /* ---------- Stats ---------- */
-  .stats-grid{
-    display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
-    max-width: 900px; margin: 0 auto;
-  }
-  .stat-card{
-    background: var(--panel-2); border: 1px solid var(--border-soft); border-radius: 14px;
-    padding: 26px; text-align:center;
-  }
-  .stat-num{ font-size: 42px; font-weight:800; letter-spacing:-1px; }
-  /* ---------- Footer ---------- */
-  footer{
-    border-top: 1px solid var(--border-soft);
-    padding: 40px 24px;
-    text-align:center;
-    color: var(--text-dimmer);
-    font-size: 13px;
-  }
-  @media (max-width: 900px){
-    .hero h1{ font-size: 42px; }
-    .gm-grid, .feat-grid, .stats-grid{ grid-template-columns: 1fr; }
-    section{ padding: 60px 18px; }
-  }
-</style>
-</head>
-<body>
-  <!-- Header / Nav -->
-  <header>
-    <div class="wrap">
-      <nav>
-        <!-- Logo on the FAR LEFT -->
-        <div class="brand">
-          <img class="brand-mark" src="logo.png" alt="Corz logo">
-        </div>
-        <!-- Buttons on the right -->
-        <div class="nav-right">
-          <a href="https://discord.gg/corz" target="_blank" rel="noopener" class="btn btn-outline">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M20.317 4.369a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.099.246.198.373.292a.077.077 0 0 1-.006.127c-.598.35-1.22.645-1.873.892a.076.076 0 0 0-.04.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.029 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.055c.5-5.177-.838-9.674-3.549-13.662a.06.06 0 0 0-.031-.028ZM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.955 2.419-2.157 2.419Zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.946 2.419-2.157 2.419Z"/></svg>
-            Join Discord
-          </a>
-          <a href="download.html" class="btn btn-primary">Download Now</a>
-          <a href="dashboard.html" class="btn btn-outline">Dashboard</a>
-        </div>
-      </nav>
-    </div>
-  </header>
-  <!-- Hero -->
-  <section class="hero" style="padding-top:80px;">
-    <div class="pill">
-      <span class="dot"></span> Undetected <span class="sep">|</span> Updated for 1.21.11
-    </div>
-    <h1>The <span class="grad">Ultimate</span><br>Minecraft Client</h1>
-    <p class="sub">
-      Powered by the <b>Auto Schematic Builder</b> — import any build and Corz places every block for you automatically, pixel-perfect and completely undetected. Ship massive structures in minutes, not hours.
-    </p>
-    <div class="hero-cta">
-      <a href="download.html" class="btn btn-primary btn-lg">Download Now</a>
-      <a href="#gamemodes" class="btn btn-outline btn-lg">See Modules</a>
-    </div>
-  </section>
-  <!-- You can paste the rest of your sections here (gamemodes, features, etc.) -->
-  <footer>
-    <div class="wrap">
-      © 2026 Corz Client. All rights reserved.
-    </div>
-  </footer>
-</body>
-</html>
-<div class="hero-preview">
-  <div class="builder-header">
-    <div class="builder-title">
-      <span class="builder-icon">◆</span>
-      Building your schematic
-    </div>
-    <div class="builder-status" id="builderStatus">
-      <span class="status-dot"></span>
-      <svg class="status-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="20 6 9 17 4 12"></polyline>
-      </svg>
-      <span class="status-label">Building</span>
-    </div>
-  </div>
-
-  <div class="minecraft-preview">
-    <!-- The actual farm image -->
-    <img src="kelp-farm.png" alt="Kelp Farm" class="preview-image">
-
-    <!-- Hologram grid overlay (25-40% opacity) -->
-    <div class="scan-overlay"></div>
-
-    <!-- Moving scanner line -->
-    <div class="scan-line"></div>
-  </div>
-
-  <div class="builder-progress">
-    <div class="progress-info">
-      <span>Placing blocks</span>
-      <strong id="buildPercent">0%</strong>
-    </div>
-    <div class="progress-bar">
-      <div class="progress-fill" id="progressFill"></div>
-    </div>
-  </div>
-</div>
-<style>
-/* ===== BUILDER LAYOUT ===== */
-.builder-layout {
-  width: 100%;
-  max-width: 1120px;
-  margin: 56px auto 0;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(460px, 528px);
-  align-items: center;
-  gap: 72px;
-  text-align: left;
-}
-.builder-copy {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-.builder-copy-item {
-  display: grid;
-  grid-template-columns: 44px 1fr;
-  gap: 16px;
-  align-items: start;
-}
-.builder-copy-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #5aa0ff;
-  background: rgba(61,127,255,.11);
-  border: 1px solid rgba(61,127,255,.28);
-}
-.builder-copy-icon svg { width: 20px; height: 20px; }
-.builder-copy h3 {
-  margin: 0 0 7px;
-  color: #eef1f8;
-  font-size: 17px;
-  font-weight: 800;
-}
-.builder-copy p {
-  margin: 0;
-  max-width: 500px;
-  color: #97a1b8;
-  font-size: 13.5px;
-  line-height: 1.55;
-}
-/* ===== PREVIEW CARD ===== */
 .hero-preview {
   width: 100%;
   max-width: 528px;
   margin: 0 auto;
-  padding: 18px;
+  padding: 20px;
   box-sizing: border-box;
-  border: 1px solid #1e3a5f;
+  border: 1px solid #19385d;
   border-radius: 16px;
-  background: #0c1420;
-  box-shadow: 0 20px 50px rgba(0,0,0,.35);
+  background: #0d1420;
+  box-shadow: 0 20px 50px rgba(0,0,0,.25);
 }
-
 .builder-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
-
 .builder-title {
   display: flex;
   align-items: center;
-  gap: 8px;
-  color: #c9d0dc;
+  gap: 9px;
+  color: #c7cbd3;
   font-size: 14px;
   font-weight: 700;
 }
+.builder-icon { color: #4294ff; font-size: 18px; }
 
-.builder-icon {
-  color: #4d9cff;
-  font-size: 15px;
-}
-
-/* Status pill */
+/* STATUS PILL */
 .builder-status {
   display: flex;
   align-items: center;
   gap: 7px;
   padding: 5px 12px;
   border-radius: 20px;
-  background: rgba(48,123,255,.13);
-  color: #4d9cff;
+  background: rgba(48,123,255,.12);
+  color: #4294ff;
   font-size: 12px;
   font-weight: 700;
-  border: 1px solid rgba(77,156,255,.35);
+  border: 1px solid rgba(66,148,255,.35);
   transition: all .25s ease;
 }
-
 .builder-status .status-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #4d9cff;
-  box-shadow: 0 0 8px #4d9cff;
+  background: #4294ff;
+  box-shadow: 0 0 8px #4294ff;
 }
-
 .builder-status .status-check {
   display: none;
   width: 12px;
   height: 12px;
 }
-
 .builder-status.is-done {
-  background: rgba(47,214,107,.13);
+  background: rgba(47,214,107,.12);
   color: #2fd66b;
   border-color: rgba(47,214,107,.45);
 }
-
 .builder-status.is-done .status-dot { display: none; }
 .builder-status.is-done .status-check { display: block; }
 
-/* Preview area */
+/* PREVIEW BOX (NO IMAGE) */
 .minecraft-preview {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 10;
   overflow: hidden;
+  border: 1px solid #34587c;
   border-radius: 12px;
-  border: 1px solid #2a4a6e;
-  background: #111820;
+  background: #202731;
 }
-
-.preview-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.preview-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, #1a2332 0%, #0f1621 100%),
+    repeating-linear-gradient(0deg, transparent, transparent 31px, rgba(70,145,255,.08) 32px),
+    repeating-linear-gradient(90deg, transparent, transparent 31px, rgba(70,145,255,.08) 32px);
+  background-size: 100% 100%, 48px 48px, 48px 48px;
 }
-
-/* Hologram grid (25-40% opacity) */
 .scan-overlay {
   position: absolute;
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(rgba(70,140,220,.18) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(70,140,220,.18) 1px, transparent 1px);
-  background-size: 36px 36px;
-  opacity: 0.38;
-  mix-blend-mode: screen;
+    linear-gradient(rgba(77,130,180,.13) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(77,130,180,.13) 1px, transparent 1px);
+  background-size: 48px 48px;
 }
 
-/* Moving scanner line */
-.scan-line {
+/* HOLOGRAM */
+.schematic-hologram {
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #4d9cff, #a06bff, #4d9cff, transparent);
-  box-shadow: 0 0 12px #4d9cff, 0 0 28px rgba(77,156,255,.6);
-  animation: scan 4.6s linear infinite;
+  left: 9%; right: 9%; top: 9%; bottom: 9%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   pointer-events: none;
-  opacity: 0.9;
+  perspective: 700px;
+  opacity: .9;
 }
-
-@keyframes scan {
-  0%   { top: 0%;   opacity: 0; }
-  8%   { opacity: 1; }
-  92%  { opacity: 1; }
-  100% { top: 100%; opacity: 0; }
-}
-
-/* Progress */
-.builder-progress {
-  margin-top: 14px;
-}
-
-.progress-info {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px;
-  color: #8a92a3;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.progress-info strong {
-  color: #e4e7ed;
-}
-
-.progress-bar {
-  width: 100%;
-  height: 7px;
-  overflow: hidden;
-  border-radius: 10px;
-  background: #1a2230;
-}
-
-.progress-fill {
-  width: 0%;
-  height: 100%;
-  border-radius: inherit;
-  background: linear-gradient(90deg, #3d7fff, #8b5cf6);
-  box-shadow: 0 0 12px rgba(90,100,255,.4);
-  transition: width .08s linear;
-}.hero-preview {
-  width: 100%;
-  max-width: 528px;
-  margin: 0 auto;
-  padding: 18px;
-  box-sizing: border-box;
-  border: 1px solid #1e3a5f;
-  border-radius: 16px;
-  background: #0c1420;
-  box-shadow: 0 20px 50px rgba(0,0,0,.35);
-}
-
-.builder-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 14px;
-}
-
-.builder-title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #c9d0dc;
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.builder-icon {
-  color: #4d9cff;
-  font-size: 15px;
-}
-
-/* Status pill */
-.builder-status {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  padding: 5px 12px;
-  border-radius: 20px;
-  background: rgba(48,123,255,.13);
-  color: #4d9cff;
-  font-size: 12px;
-  font-weight: 700;
-  border: 1px solid rgba(77,156,255,.35);
-  transition: all .25s ease;
-}
-
-.builder-status .status-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #4d9cff;
-  box-shadow: 0 0 8px #4d9cff;
-}
-
-.builder-status .status-check {
-  display: none;
-  width: 12px;
-  height: 12px;
-}
-
-.builder-status.is-done {
-  background: rgba(47,214,107,.13);
-  color: #2fd66b;
-  border-color: rgba(47,214,107,.45);
-}
-
-.builder-status.is-done .status-dot { display: none; }
-.builder-status.is-done .status-check { display: block; }
-
-/* Preview area */
-.minecraft-preview {
+.holo-shell {
   position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  border-radius: 12px;
-  border: 1px solid #2a4a6e;
-  background: #111820;
-}
-
-.preview-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Hologram grid (25-40% opacity) */
-.scan-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
+  width: 58%;
+  height: 62%;
+  transform: rotateX(58deg) rotateZ(-8deg);
+  transform-origin: center;
+  animation: hologramFloat 1.9s ease-in-out infinite;
+  border: 1px solid rgba(57,140,255,.72);
   background:
-    linear-gradient(rgba(70,140,220,.18) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(70,140,220,.18) 1px, transparent 1px);
-  background-size: 36px 36px;
-  opacity: 0.38;
-  mix-blend-mode: screen;
+    linear-gradient(135deg, rgba(25,67,120,.28), rgba(8,28,61,.10)),
+    repeating-linear-gradient(90deg, rgba(70,145,255,.12) 0 1px, transparent 1px 18px),
+    repeating-linear-gradient(0deg, rgba(70,145,255,.10) 0 1px, transparent 1px 18px);
+  box-shadow: 0 0 18px rgba(57,140,255,.28), inset 0 0 22px rgba(34,93,170,.20);
+}
+.holo-top, .holo-bottom {
+  position: absolute;
+  left: 8%; right: 8%;
+  height: 18%;
+  border: 1px solid rgba(83,157,255,.68);
+  background: rgba(31,79,135,.18);
+}
+.holo-top { top: -9%; transform: skewX(-18deg); }
+.holo-bottom { bottom: -9%; transform: skewX(18deg); }
+.holo-side {
+  position: absolute;
+  top: 6%; bottom: 6%;
+  width: 10%;
+  border: 1px solid rgba(64,143,255,.58);
+  background: rgba(21,61,112,.16);
+}
+.holo-side-left { left: -5%; transform: skewY(18deg); }
+.holo-side-right { right: -5%; transform: skewY(-18deg); }
+.holo-glow {
+  position: absolute;
+  inset: 18% 15%;
+  background: radial-gradient(ellipse, rgba(38,117,255,.23), transparent 68%);
+  filter: blur(8px);
+}
+@keyframes hologramFloat {
+  0%, 100% { transform: rotateX(58deg) rotateZ(-8deg) translateY(9px); }
+  50% { transform: rotateX(58deg) rotateZ(-8deg) translateY(-9px); }
 }
 
-/* Moving scanner line */
+/* SCAN LINE */
 .scan-line {
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #4d9cff, #a06bff, #4d9cff, transparent);
-  box-shadow: 0 0 12px #4d9cff, 0 0 28px rgba(77,156,255,.6);
-  animation: scan 4.6s linear infinite;
+  left: 0; right: 0;
+  top: -4px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #4898ff, #9a6cff, #4898ff, transparent);
+  box-shadow: 0 0 10px #4898ff, 0 0 25px rgba(72,152,255,.7);
+  animation: scan 4.8s linear infinite;
   pointer-events: none;
-  opacity: 0.9;
 }
-
 @keyframes scan {
-  0%   { top: 0%;   opacity: 0; }
-  8%   { opacity: 1; }
-  92%  { opacity: 1; }
+  0% { top: 0%; opacity: 0; }
+  8% { opacity: 1; }
+  92% { opacity: 1; }
   100% { top: 100%; opacity: 0; }
 }
 
-/* Progress */
-.builder-progress {
-  margin-top: 14px;
-}
-
+/* PROGRESS */
+.builder-progress { margin-top: 16px; }
 .progress-info {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 8px;
-  color: #8a92a3;
+  margin-bottom: 9px;
+  color: #858c98;
   font-size: 13px;
   font-weight: 600;
 }
-
-.progress-info strong {
-  color: #e4e7ed;
-}
-
+.progress-info strong { color: #e4e7ed; }
 .progress-bar {
   width: 100%;
-  height: 7px;
+  height: 8px;
   overflow: hidden;
   border-radius: 10px;
-  background: #1a2230;
+  background: #202733;
 }
-
 .progress-fill {
   width: 0%;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, #3d7fff, #8b5cf6);
-  box-shadow: 0 0 12px rgba(90,100,255,.4);
+  background: linear-gradient(90deg, #398cff, #8148ef);
+  box-shadow: 0 0 12px rgba(90,100,255,.35);
   transition: width .08s linear;
 }
+
 @media (max-width: 900px) {
   .builder-layout {
     grid-template-columns: 1fr;
@@ -1126,6 +748,7 @@
   .hero-preview { order: 1; max-width: 528px; margin: 0 auto; }
 }
 </style>
+
 <script>
 (() => {
   const fill = document.getElementById("progressFill");
@@ -1133,8 +756,8 @@
   const status = document.getElementById("builderStatus");
   const label = status.querySelector(".status-label");
 
-  const DURATION = 4200;   // how long the build takes
-  const HOLD = 2200;       // how long it stays on "Done"
+  const DURATION = 2500;
+  const HOLD = 1800;
 
   function reset() {
     fill.style.width = "0%";
@@ -1157,14 +780,11 @@
   function animate(startTime) {
     function frame(now) {
       const progress = Math.min((now - startTime) / DURATION, 1);
-      const eased = 1 - Math.pow(1 - progress, 2.4);
-      fill.style.width = (eased * 100).toFixed(1) + "%";
+      const eased = 1 - Math.pow(1 - progress, 3);
+      fill.style.width = (eased * 100).toFixed(2) + "%";
       percent.textContent = Math.round(eased * 100) + "%";
-      if (progress < 1) {
-        requestAnimationFrame(frame);
-      } else {
-        finish();
-      }
+      if (progress < 1) requestAnimationFrame(frame);
+      else finish();
     }
     requestAnimationFrame(frame);
   }
@@ -1176,29 +796,37 @@
 
   start();
 })();
-</script>v
+</script>
+
 <script>
 (() => {
   const fill = document.getElementById("progressFill");
   const percent = document.getElementById("buildPercent");
   const status = document.getElementById("builderStatus");
+
   const duration = 2500;
   const start = performance.now();
+
   function finish() {
     fill.style.width = "100%";
     percent.textContent = "100%";
     status.classList.add("is-done");
     status.querySelector(".status-label").textContent = "Done";
   }
+
   function animate(now) {
     const progress = Math.min((now - start) / duration, 1);
     const eased = 1 - Math.pow(1 - progress, 3);
+
     fill.style.width = (eased * 100).toFixed(2) + "%";
     percent.textContent = Math.round(eased * 100) + "%";
+
     if (progress < 1) {
       requestAnimationFrame(animate);
     } else {
       finish();
+    }
+  }
 
   requestAnimationFrame(animate);
 })();
