@@ -420,7 +420,6 @@
         <p>Paste a build you found online or made yourself. Farms, bases, redstone — anything.</p>
       </div>
     </div>
-
     <div class="builder-copy-item">
       <div class="builder-copy-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -435,7 +434,6 @@
         <p>Sit back while the client places every block automatically, in the right order.</p>
       </div>
     </div>
-
     <div class="builder-copy-item">
       <div class="builder-copy-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -451,46 +449,49 @@
   </div>
 
   <div class="hero-preview">
-  <div class="builder-header">
-    <div class="builder-title">
-      <span class="builder-icon">♧</span>
-      Building your schematic
-    </div>
-    <div class="builder-status" id="builderStatus">
-      <span class="status-dot"></span><span class="status-label">Building</span>
-    </div>
-  </div>
-
-  <div class="minecraft-preview">
-    <img src="kelp-farm.png" alt="Minecraft schematic">
-
-    <div class="scan-overlay"></div>
-    <div class="schematic-hologram" aria-hidden="true">
-      <div class="holo-shell">
-        <div class="holo-top"></div>
-        <div class="holo-bottom"></div>
-        <div class="holo-side holo-side-left"></div>
-        <div class="holo-side holo-side-right"></div>
-        <div class="holo-glow"></div>
+    <div class="builder-header">
+      <div class="builder-title">
+        <span class="builder-icon">♧</span>
+        Building your schematic
+      </div>
+      <div class="builder-status" id="builderStatus">
+        <span class="status-dot"></span>
+        <svg class="status-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span class="status-label">Building</span>
       </div>
     </div>
-    <div class="scan-line"></div>
-  </div>
 
-  <div class="builder-progress">
-    <div class="progress-info">
-      <span>Placing blocks</span>
-      <strong id="buildPercent">0%</strong>
+    <div class="minecraft-preview">
+      <div class="preview-bg"></div>
+      <div class="scan-overlay"></div>
+      <div class="schematic-hologram" aria-hidden="true">
+        <div class="holo-shell">
+          <div class="holo-top"></div>
+          <div class="holo-bottom"></div>
+          <div class="holo-side holo-side-left"></div>
+          <div class="holo-side holo-side-right"></div>
+          <div class="holo-glow"></div>
+        </div>
+      </div>
+      <div class="scan-line"></div>
     </div>
 
-    <div class="progress-bar">
-      <div class="progress-fill" id="progressFill"></div>
+    <div class="builder-progress">
+      <div class="progress-info">
+        <span>Placing blocks</span>
+        <strong id="buildPercent">0%</strong>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
     </div>
   </div>
-</div>
 </div>
 
 <style>
+/* ===== BUILDER LAYOUT ===== */
 .builder-layout {
   width: 100%;
   max-width: 1120px;
@@ -501,20 +502,17 @@
   gap: 72px;
   text-align: left;
 }
-
 .builder-copy {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
-
 .builder-copy-item {
   display: grid;
   grid-template-columns: 44px 1fr;
   gap: 16px;
   align-items: start;
 }
-
 .builder-copy-icon {
   width: 44px;
   height: 44px;
@@ -525,22 +523,14 @@
   color: #5aa0ff;
   background: rgba(61,127,255,.11);
   border: 1px solid rgba(61,127,255,.28);
-  box-shadow: inset 0 0 18px rgba(61,127,255,.05);
 }
-
-.builder-copy-icon svg {
-  width: 20px;
-  height: 20px;
-}
-
+.builder-copy-icon svg { width: 20px; height: 20px; }
 .builder-copy h3 {
   margin: 0 0 7px;
   color: #eef1f8;
   font-size: 17px;
-  line-height: 1.3;
   font-weight: 800;
 }
-
 .builder-copy p {
   margin: 0;
   max-width: 500px;
@@ -549,6 +539,7 @@
   line-height: 1.55;
 }
 
+/* ===== PREVIEW CARD ===== */
 .hero-preview {
   width: 100%;
   max-width: 528px;
@@ -560,14 +551,12 @@
   background: #0d1420;
   box-shadow: 0 20px 50px rgba(0,0,0,.25);
 }
-
 .builder-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 16px;
 }
-
 .builder-title {
   display: flex;
   align-items: center;
@@ -576,12 +565,9 @@
   font-size: 14px;
   font-weight: 700;
 }
+.builder-icon { color: #4294ff; font-size: 18px; }
 
-.builder-icon {
-  color: #4294ff;
-  font-size: 18px;
-}
-
+/* STATUS PILL */
 .builder-status {
   display: flex;
   align-items: center;
@@ -592,16 +578,30 @@
   color: #4294ff;
   font-size: 12px;
   font-weight: 700;
+  border: 1px solid rgba(66,148,255,.35);
+  transition: all .25s ease;
 }
-
-.builder-status span {
+.builder-status .status-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background: #4294ff;
   box-shadow: 0 0 8px #4294ff;
 }
+.builder-status .status-check {
+  display: none;
+  width: 12px;
+  height: 12px;
+}
+.builder-status.is-done {
+  background: rgba(47,214,107,.12);
+  color: #2fd66b;
+  border-color: rgba(47,214,107,.45);
+}
+.builder-status.is-done .status-dot { display: none; }
+.builder-status.is-done .status-check { display: block; }
 
+/* PREVIEW BOX (NO IMAGE) */
 .minecraft-preview {
   position: relative;
   width: 100%;
@@ -611,15 +611,15 @@
   border-radius: 12px;
   background: #202731;
 }
-
-.minecraft-preview img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
+.preview-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, #1a2332 0%, #0f1621 100%),
+    repeating-linear-gradient(0deg, transparent, transparent 31px, rgba(70,145,255,.08) 32px),
+    repeating-linear-gradient(90deg, transparent, transparent 31px, rgba(70,145,255,.08) 32px);
+  background-size: 100% 100%, 48px 48px, 48px 48px;
 }
-
-/* subtle Minecraft-style grid */
 .scan-overlay {
   position: absolute;
   inset: 0;
@@ -630,13 +630,10 @@
   background-size: 48px 48px;
 }
 
-/* animated dark-blue schematic hologram */
+/* HOLOGRAM */
 .schematic-hologram {
   position: absolute;
-  left: 9%;
-  right: 9%;
-  top: 9%;
-  bottom: 9%;
+  left: 9%; right: 9%; top: 9%; bottom: 9%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -644,7 +641,6 @@
   perspective: 700px;
   opacity: .9;
 }
-
 .holo-shell {
   position: relative;
   width: 58%;
@@ -657,105 +653,57 @@
     linear-gradient(135deg, rgba(25,67,120,.28), rgba(8,28,61,.10)),
     repeating-linear-gradient(90deg, rgba(70,145,255,.12) 0 1px, transparent 1px 18px),
     repeating-linear-gradient(0deg, rgba(70,145,255,.10) 0 1px, transparent 1px 18px);
-  box-shadow:
-    0 0 18px rgba(57,140,255,.28),
-    inset 0 0 22px rgba(34,93,170,.20);
+  box-shadow: 0 0 18px rgba(57,140,255,.28), inset 0 0 22px rgba(34,93,170,.20);
 }
-
-.holo-top,
-.holo-bottom {
+.holo-top, .holo-bottom {
   position: absolute;
-  left: 8%;
-  right: 8%;
+  left: 8%; right: 8%;
   height: 18%;
   border: 1px solid rgba(83,157,255,.68);
   background: rgba(31,79,135,.18);
 }
-
-.holo-top {
-  top: -9%;
-  transform: skewX(-18deg);
-}
-
-.holo-bottom {
-  bottom: -9%;
-  transform: skewX(18deg);
-}
-
+.holo-top { top: -9%; transform: skewX(-18deg); }
+.holo-bottom { bottom: -9%; transform: skewX(18deg); }
 .holo-side {
   position: absolute;
-  top: 6%;
-  bottom: 6%;
+  top: 6%; bottom: 6%;
   width: 10%;
   border: 1px solid rgba(64,143,255,.58);
   background: rgba(21,61,112,.16);
 }
-
-.holo-side-left {
-  left: -5%;
-  transform: skewY(18deg);
-}
-
-.holo-side-right {
-  right: -5%;
-  transform: skewY(-18deg);
-}
-
+.holo-side-left { left: -5%; transform: skewY(18deg); }
+.holo-side-right { right: -5%; transform: skewY(-18deg); }
 .holo-glow {
   position: absolute;
   inset: 18% 15%;
   background: radial-gradient(ellipse, rgba(38,117,255,.23), transparent 68%);
   filter: blur(8px);
 }
-
 @keyframes hologramFloat {
   0%, 100% { transform: rotateX(58deg) rotateZ(-8deg) translateY(9px); }
   50% { transform: rotateX(58deg) rotateZ(-8deg) translateY(-9px); }
 }
 
-/* glowing scanning line */
+/* SCAN LINE */
 .scan-line {
   position: absolute;
-  left: 0;
-  right: 0;
+  left: 0; right: 0;
   top: -4px;
   height: 3px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #4898ff,
-    #9a6cff,
-    #4898ff,
-    transparent
-  );
-  box-shadow:
-    0 0 10px #4898ff,
-    0 0 25px rgba(72,152,255,.7);
+  background: linear-gradient(90deg, transparent, #4898ff, #9a6cff, #4898ff, transparent);
+  box-shadow: 0 0 10px #4898ff, 0 0 25px rgba(72,152,255,.7);
   animation: scan 4.8s linear infinite;
   pointer-events: none;
 }
-
 @keyframes scan {
-  0% {
-    top: 0%;
-    opacity: 0;
-  }
-  8% {
-    opacity: 1;
-  }
-  92% {
-    opacity: 1;
-  }
-  100% {
-    top: 100%;
-    opacity: 0;
-  }
+  0% { top: 0%; opacity: 0; }
+  8% { opacity: 1; }
+  92% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
 }
 
-.builder-progress {
-  margin-top: 16px;
-}
-
+/* PROGRESS */
+.builder-progress { margin-top: 16px; }
 .progress-info {
   display: flex;
   justify-content: space-between;
@@ -764,12 +712,7 @@
   font-size: 13px;
   font-weight: 600;
 }
-
-.progress-info strong {
-  color: #e4e7ed;
-  font-size: 13px;
-}
-
+.progress-info strong { color: #e4e7ed; }
 .progress-bar {
   width: 100%;
   height: 8px;
@@ -777,7 +720,6 @@
   border-radius: 10px;
   background: #202733;
 }
-
 .progress-fill {
   width: 0%;
   height: 100%;
@@ -786,7 +728,66 @@
   box-shadow: 0 0 12px rgba(90,100,255,.35);
   transition: width .08s linear;
 }
+
+@media (max-width: 900px) {
+  .builder-layout {
+    grid-template-columns: 1fr;
+    gap: 38px;
+    margin-top: 42px;
+  }
+  .builder-copy { order: 2; }
+  .hero-preview { order: 1; max-width: 528px; margin: 0 auto; }
+}
 </style>
+
+<script>
+(() => {
+  const fill = document.getElementById("progressFill");
+  const percent = document.getElementById("buildPercent");
+  const status = document.getElementById("builderStatus");
+  const label = status.querySelector(".status-label");
+
+  const DURATION = 2500;
+  const HOLD = 1800;
+
+  function reset() {
+    fill.style.width = "0%";
+    percent.textContent = "0%";
+    status.classList.remove("is-done");
+    label.textContent = "Building";
+  }
+
+  function finish() {
+    fill.style.width = "100%";
+    percent.textContent = "100%";
+    status.classList.add("is-done");
+    label.textContent = "Done";
+    setTimeout(() => {
+      reset();
+      start();
+    }, HOLD);
+  }
+
+  function animate(startTime) {
+    function frame(now) {
+      const progress = Math.min((now - startTime) / DURATION, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      fill.style.width = (eased * 100).toFixed(2) + "%";
+      percent.textContent = Math.round(eased * 100) + "%";
+      if (progress < 1) requestAnimationFrame(frame);
+      else finish();
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function start() {
+    reset();
+    animate(performance.now());
+  }
+
+  start();
+})();
+</script>
 
 <script>
 (() => {
