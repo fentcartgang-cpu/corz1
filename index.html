@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Corz — The Ultimate Minecraft Client</title>
-<link rel="icon" type="image/png" href="assets/favicon-32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
-<link rel="apple-touch-icon" href="assets/favicon-192.png">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="icon" type="image/png" sizes="192x192" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
 <style>
   :root{
     --bg: #05070d;
@@ -374,14 +374,9 @@
     <div class="wrap">
       <nav>
         <div class="brand">
-          <img class="brand-mark" src="assets/logo.png" alt="Corz logo">
+          <img class="brand-mark" src="logo.png" alt="Corz logo">
           CORZ
         </div>
-        <div class="nav-links">
-          <a href="#gamemodes">Features</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#reviews">Reviews</a>
-          <a href="#guides">Guides</a>
         </div>
         <div class="nav-right">
           <a href="https://discord.gg/corz" target="_blank" rel="noopener" class="btn btn-outline btn-discord">
@@ -408,10 +403,9 @@
       <a href="#gamemodes" class="btn btn-outline btn-lg">See Modules</a>
     </div>
 
-    <div class="hero-preview">
-      <div class="hero-preview-inner">client preview</div>
-    </div>
-  </section>
+<div class="hero-preview">
+  <img src="/assets/test.gif" alt="Client preview">
+</div>
 
   <section id="gamemodes">
     <div class="eyebrow">EVERY MODULE, ON CAMERA</div>
@@ -604,7 +598,7 @@
   </section>
 
   <footer>
-    <b>Corz</b> — this preview site is under construction. All accounts, purchases, and stats shown are stubbed test data.
+    <b>Corz</b> — discord.gg/corz | @sodaxmr on youtube
   </footer>
 
 <script>
@@ -748,16 +742,16 @@
 
   // ---------- Testimonials waterfall ----------
   const testimonials = [
-    { name:'kai', handle:'@yungkai', quote:'best minecraft client for donutsmp hands down. the base finder is insanely accurate', color:'#3d7fff' },
-    { name:'tom', handle:'@tommyy', quote:'been using corz for 2 months now, never been detected. devs keep it updated every patch', color:'#8b5cf6' },
-    { name:'jordan', handle:'@jrdn', quote:'the ui is so clean and easy to use, found bases within minutes of setting it up', color:'#2fd66b' },
-    { name:'mia', handle:'@miaaa', quote:'the esp and base finder combo is insane, makes grinding on donutsmp so much easier', color:'#f5b942' },
-    { name:'luca', handle:'@lucaa', quote:'corz is undetected on donutsmp, devs update it fast after every server patch', color:'#38bdf8' },
-    { name:'bigmanT', handle:'@xX_bigmanT_Xx', quote:'switched from another client to corz, way better performance and more features', color:'#ff6b6b' },
-    { name:'devon', handle:'@devv', quote:'corz client ui is super clean, all the modules work great on donut. no lag at all', color:'#3d7fff' },
-    { name:'bunnylord69', handle:'@bunnylord69', quote:'found more bases in one day with corz than i did in a week without it. game changer', color:'#a78bfa' },
-    { name:'drip', handle:'@drip.404', quote:'support team is great, had a question and got help in minutes. client runs smooth too', color:'#f97316' },
-  ];
+  { name:'lowrated', handle:'@lowrated', quote:'best minecraft client for donutsmp hands down. the base finder is insanely accurate', color:'#3d7fff' },
+  { name:'qweqwe', handle:'@qweqwe', quote:'been using corz for 2 months now, never been detected. devs keep it updated every patch', color:'#8b5cf6' },
+  { name:'Simple', handle:'@Simple', quote:'the ui is so clean and easy to use, found bases within minutes of setting it up', color:'#2fd66b' },
+  { name:'VALVE', handle:'@VALVE', quote:'the esp and base finder combo is insane, makes grinding on donutsmp so much easier', color:'#f5b942' },
+  { name:'APIGEON', handle:'@APIGEON', quote:'corz is undetected on donutsmp, devs update it fast after every server patch', color:'#38bdf8' },
+  { name:'Anthony', handle:'@Anthony', quote:'switched from another client to corz, way better performance and more features', color:'#ff6b6b' },
+  { name:'gamble', handle:'@gamble', quote:'corz client ui is super clean, all the modules work great on donut. no lag at all', color:'#3d7fff' },
+  { name:'latinalover42510', handle:'@latinalover42510', quote:'found more bases in one day with corz than i did in a week without it. game changer', color:'#a78bfa' },
+  { name:'loudguy64', handle:'@loudguy64', quote:'support team is great, had a question and got help in minutes. client runs smooth too', color:'#f97316' },
+];
 
   function testiCardHTML(t){
     const initial = t.name.trim().charAt(0).toUpperCase();
