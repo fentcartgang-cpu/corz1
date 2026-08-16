@@ -1,0 +1,8 @@
+.brand-mark {
+  height: 68px;        /* a little bigger to fill the space */
+  width: auto;
+  display: block;
+  background: transparent !important;
+  border: none;
+  box-shadow: none;
+}
