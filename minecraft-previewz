@@ -752,31 +752,7 @@
 
 <script>
 (() => {
-  const fill = document.getElementById("progressFill");
-  const percent = document.getElementById("buildPercent");
-  const status = document.getElementById("builderStatus");
-  const label = status.querySelector(".status-label");
-
-  const DURATION = 2500;
-  const HOLD = 1800;
-
-  function reset() {
-    fill.style.width = "0%";
-    percent.textContent = "0%";
-    status.classList.remove("is-done");
-    label.textContent = "Building";
-  }
-
-  function finish() {
-    fill.style.width = "100%";
-    percent.textContent = "100%";
-    status.classList.add("is-done");
-    label.textContent = "Done";
-    setTimeout(() => {
-      reset();
-      start();
-    }, HOLD);
-  }
+zz
 
   function animate(startTime) {
     function frame(now) {
@@ -804,34 +780,252 @@
   const fill = document.getElementById("progressFill");
   const percent = document.getElementById("buildPercent");
   const status = document.getElementById("builderStatus");
+  const label = status.querySelector(".status-label");
 
-  const duration = 2500;
-  const start = performance.now();
+  const DURATION = 4200;   // how long the build takes
+  const HOLD = 2200;       // how long it stays on "Done"
+
+  function reset() {
+    fill.style.width = "0%";
+    percent.textContent = "0%";
+    status.classList.remove("is-done");
+    label.textContent = "Building";
+  }
 
   function finish() {
     fill.style.width = "100%";
     percent.textContent = "100%";
     status.classList.add("is-done");
-    status.querySelector(".status-label").textContent = "Done";
+    label.textContent = "Done";
+    setTimeout(() => {
+      reset();
+      start();
+    }, HOLD);
   }
 
-  function animate(now) {
-    const progress = Math.min((now - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-
-    fill.style.width = (eased * 100).toFixed(2) + "%";
-    percent.textContent = Math.round(eased * 100) + "%";
-
-    if (progress < 1) {
-      requestAnimationFrame(animate);
-    } else {
-      finish();
+  function animate(startTime) {
+    function frame(now) {
+      const progress = Math.min((now - startTime) / DURATION, 1);
+      const eased = 1 - Math.pow(1 - progress, 2.4);
+      fill.style.width = (eased * 100).toFixed(1) + "%";
+      percent.textContent = Math.round(eased * 100) + "%";
+      if (progress < 1) {
+        requestAnimationFrame(frame);
+      } else {
+        finish();
+      }
     }
+    requestAnimationFrame(frame);
   }
 
-  requestAnimationFrame(animate);
+  function start() {
+    reset();
+    animate(performance.now());
+  }
+
+  start();
 })();
-</script>v
+</script><script>
+(() => {
+  const fill = document.getElementById("progressFill");
+  const percent = document.getElementById("buildPercent");
+  const status = document.getElementById("builderStatus");
+  const label = status.querySelector(".status-label");
+
+  const DURATION = 4200;   // how long the build takes
+  const HOLD = 2200;       // how long it stays on "Done"
+
+  function reset() {
+    fill.style.width = "0%";
+    percent.textContent = "0%";
+    status.classList.remove("is-done");
+    label.textContent = "Building";
+  }
+
+  function finish() {
+    fill.style.width = "100%";
+    percent.textContent = "100%";
+    status.classList.add("is-done");
+    label.textContent = "Done";
+    setTimeout(() => {
+      reset();
+      start();
+    }, HOLD);
+  }
+
+  function animate(startTime) {
+    function frame(now) {
+      const progress = Math.min((now - startTime) / DURATION, 1);
+      const eased = 1 - Math.pow(1 - progress, 2.4);
+      fill.style.width = (eased * 100).toFixed(1) + "%";
+      percent.textContent = Math.round(eased * 100) + "%";
+      if (progress < 1) {
+        requestAnimationFrame(frame);
+      } else {
+        finish();
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function start() {
+    reset();
+    animate(performance.now());
+  }
+
+  start();
+})();
+</script><script>
+(() => {
+  const fill = document.getElementById("progressFill");
+  const percent = document.getElementById("buildPercent");
+  const status = document.getElementById("builderStatus");
+  const label = status.querySelector(".status-label");
+
+  const DURATION = 4200;   // how long the build takes
+  const HOLD = 2200;       // how long it stays on "Done"
+
+  function reset() {
+    fill.style.width = "0%";
+    percent.textContent = "0%";
+    status.classList.remove("is-done");
+    label.textContent = "Building";
+  }
+
+  function finish() {
+    fill.style.width = "100%";
+    percent.textContent = "100%";
+    status.classList.add("is-done");
+    label.textContent = "Done";
+    setTimeout(() => {
+      reset();
+      start();
+    }, HOLD);
+  }
+
+  function animate(startTime) {
+    function frame(now) {
+      const progress = Math.min((now - startTime) / DURATION, 1);
+      const eased = 1 - Math.pow(1 - progress, 2.4);
+      fill.style.width = (eased * 100).toFixed(1) + "%";
+      percent.textContent = Math.round(eased * 100) + "%";
+      if (progress < 1) {
+        requestAnimationFrame(frame);
+      } else {
+        finish();
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function start() {
+    reset();
+    animate(performance.now());
+  }
+
+  start();
+})();
+</script><script>
+(() => {
+  const fill = document.getElementById("progressFill");
+  const percent = document.getElementById("buildPercent");
+  const status = document.getElementById("builderStatus");
+  const label = status.querySelector(".status-label");
+
+  const DURATION = 4200;   // how long the build takes
+  const HOLD = 2200;       // how long it stays on "Done"
+
+  function reset() {
+    fill.style.width = "0%";
+    percent.textContent = "0%";
+    status.classList.remove("is-done");
+    label.textContent = "Building";
+  }
+
+  function finish() {
+    fill.style.width = "100%";
+    percent.textContent = "100%";
+    status.classList.add("is-done");
+    label.textContent = "Done";
+    setTimeout(() => {
+      reset();
+      start();
+    }, HOLD);
+  }
+
+  function animate(startTime) {
+    function frame(now) {
+      const progress = Math.min((now - startTime) / DURATION, 1);
+      const eased = 1 - Math.pow(1 - progress, 2.4);
+      fill.style.width = (eased * 100).toFixed(1) + "%";
+      percent.textContent = Math.round(eased * 100) + "%";
+      if (progress < 1) {
+        requestAnimationFrame(frame);
+      } else {
+        finish();
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function start() {
+    reset();
+    animate(performance.now());
+  }
+
+  start();
+})();
+</script><script>
+(() => {
+  const fill = document.getElementById("progressFill");
+  const percent = document.getElementById("buildPercent");
+  const status = document.getElementById("builderStatus");
+  const label = status.querySelector(".status-label");
+
+  const DURATION = 4200;   // how long the build takes
+  const HOLD = 2200;       // how long it stays on "Done"
+
+  function reset() {
+    fill.style.width = "0%";
+    percent.textContent = "0%";
+    status.classList.remove("is-done");
+    label.textContent = "Building";
+  }
+
+  function finish() {
+    fill.style.width = "100%";
+    percent.textContent = "100%";
+    status.classList.add("is-done");
+    label.textContent = "Done";
+    setTimeout(() => {
+      reset();
+      start();
+    }, HOLD);
+  }
+
+  function animate(startTime) {
+    function frame(now) {
+      const progress = Math.min((now - startTime) / DURATION, 1);
+      const eased = 1 - Math.pow(1 - progress, 2.4);
+      fill.style.width = (eased * 100).toFixed(1) + "%";
+      percent.textContent = Math.round(eased * 100) + "%";
+      if (progress < 1) {
+        requestAnimationFrame(frame);
+      } else {
+        finish();
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function start() {
+    reset();
+    animate(performance.now());
+  }
+
+  start();
+})();
+</script>
 
   <section id="gamemodes">
     <div class="eyebrow">EVERY MODULE, ON CAMERA</div>
